@@ -12,11 +12,6 @@ body {
   color: #b9b9b9;
 }
 .wallpaper {
-  background-color: rgba(27, 19, 43, 0.87);
-  position: absolute;
-  top: 0;
-  height: 100%;
-  width: 100%;
 }
 
 .logo {
@@ -182,4 +177,19 @@ ul.ui.list li {
 .pdf-preview {
   float: left;
   width: 50%;
+}
+//////////////////////////////////@at-root.item-list
+.item-list {
+  float: left;
+  width: 64%;
+  padding: 30px;
+  border: 1px solid #cdcdcd;
+  text-align: left;
+}
+.notifications {
+  float: right;
+  width: 24%;
+  padding: 30px;
+  border: 1px solid #cdcdcd;
+  text-align: left;
 }
