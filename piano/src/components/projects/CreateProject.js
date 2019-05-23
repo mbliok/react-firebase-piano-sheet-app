@@ -1,4 +1,6 @@
 import React from 'react';
+import { connect } from 'react-redux';
+import { createProject } from '../../store/actions/projectActions';
 
 class CreateProject extends React.Component {
   constructor(props) {
@@ -15,7 +17,8 @@ class CreateProject extends React.Component {
   };
   handelSubmit = e => {
     e.preventDefault();
-    console.log(this.state);
+    // console.log(this.state);
+    this.props.createProjectMethodName(this.state);
   };
   render() {
     return (
@@ -36,5 +39,14 @@ class CreateProject extends React.Component {
     );
   }
 }
-
-export default CreateProject;
+const mapDispatchToProps = dispatch => {
+  return {
+    createProjectMethodName: project => dispatch(createProject(project))
+    // dispatch action creator-a which is imported at the top,
+    // where is the async call and then dispatch the type'CREATE_PROJECT'
+  };
+};
+export default connect(
+  null,
+  mapDispatchToProps
+)(CreateProject);
