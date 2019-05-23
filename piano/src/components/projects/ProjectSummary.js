@@ -1,10 +1,10 @@
 import React from 'react';
 
-const ProjectSummary = () => {
+const ProjectSummary = ({ project }) => {
   return (
     <section>
-      <h3>title 1</h3>
-      <p>post by...</p>
+      <h3>{project.title}</h3>
+      <p>{project.content}</p>
       <small>12.06.2019</small>
     </section>
   );
