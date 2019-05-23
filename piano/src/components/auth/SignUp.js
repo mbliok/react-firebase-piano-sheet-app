@@ -1,11 +1,13 @@
 import React from 'react';
 
-class SignIn extends React.Component {
+class SignUp extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       email: '',
-      password: ''
+      password: '',
+      firstName: '',
+      lastName: ''
     };
   }
   handelChange = e => {
@@ -19,9 +21,9 @@ class SignIn extends React.Component {
   };
   render() {
     return (
-      <div className="SignIn">
+      <div className="SignUp">
         <form onSubmit={this.handelSubmit}>
-          <h2>Sign In</h2>
+          <h2>Sign Up</h2>
           <div className="input-field">
             <label htmlFor="email">Email</label>
             <input type="email" id="email" onChange={this.handelChange} />
@@ -30,11 +32,20 @@ class SignIn extends React.Component {
             <label htmlFor="password">Password</label>
             <input type="password" id="password" onChange={this.handelChange} />
           </div>
-          <button>Sign up</button>
+          <div className="input-field">
+            <label htmlFor="firstName">Fist Name</label>
+            <input type="text" id="firstName" onChange={this.handelChange} />
+          </div>
+          <div className="input-field">
+            <label htmlFor="lastName">Last Name</label>
+            <input type="text" id="lastName" onChange={this.handelChange} />
+          </div>
+
+          <button>Login</button>
         </form>
       </div>
     );
   }
 }
 
-export default SignIn;
+export default SignUp;
