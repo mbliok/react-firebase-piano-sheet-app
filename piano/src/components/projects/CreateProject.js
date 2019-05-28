@@ -18,7 +18,7 @@ class CreateProject extends React.Component {
   handelSubmit = e => {
     e.preventDefault();
     // console.log(this.state);
-    this.props.createProjectMethodName(this.state);
+    this.props.createProjectMethodName(this.state); // the state is the project that I want to create
   };
   render() {
     return (
@@ -43,10 +43,12 @@ const mapDispatchToProps = dispatch => {
   return {
     createProjectMethodName: project => dispatch(createProject(project))
     // dispatch action creator-a which is imported at the top,
+    // then I want to take it from the reducer
     // where is the async call and then dispatch the type'CREATE_PROJECT'
   };
 };
 export default connect(
+  // connect to redux store
   null,
   mapDispatchToProps
 )(CreateProject);

@@ -5,11 +5,11 @@ import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 import { createStore, applyMiddleware } from 'redux';
-import rootReducer from './store/reducers/rootReducer';
 import { Provider } from 'react-redux';
+import rootReducer from './store/reducers/rootReducer';
 // 1. create store as a fuck with 2 arguments
 
-//  - use applyMiddleware to add the thunk middleware to the store
+//  - useing applyMiddleware to add the thunk middleware to the store
 const store = createStore(rootReducer, applyMiddleware(thunk));
 ReactDOM.render(
   <Provider store={store}>
