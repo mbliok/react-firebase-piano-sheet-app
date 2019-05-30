@@ -3,7 +3,7 @@ import 'firebase/firestore';
 import 'firebase/auth';
 
 // Firebase configuration
-var firebaseConfig = {
+var config = {
   apiKey: 'AIzaSyBPk0ONmq9z2TohWYY17wIMgQtfuVgRLEU',
   authDomain: 'piano-sheets-ffc6b.firebaseapp.com',
   databaseURL: 'https://piano-sheets-ffc6b.firebaseio.com',
@@ -13,7 +13,7 @@ var firebaseConfig = {
   appId: '1:122854642414:web:279fbb7386a0ed07'
 };
 // Initialize Firebase
-firebase.initializeApp(firebaseConfig);
+firebase.initializeApp(config);
 firebase.firestore().settings({ timestampsInSnapshots: true }); // a fb settings
 
 export default firebase;

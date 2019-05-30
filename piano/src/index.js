@@ -4,13 +4,24 @@ import thunk from 'redux-thunk'; // is a middleware
 import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
-import { createStore, applyMiddleware } from 'redux';
+import { createStore, applyMiddleware, compose } from 'redux'; // similat like root reducer
 import { Provider } from 'react-redux';
 import rootReducer from './store/reducers/rootReducer';
+import { reduxFirestore, getFirestore } from 'redux-firestore';
+import { reactReduxFirebase, getFirebase } from 'react-redux-firebase';
+import fbConfig from './config/fbConfig';
+
 // 1. create store as a fuck with 2 arguments
 
 //  - useing applyMiddleware to add the thunk middleware to the store
-const store = createStore(rootReducer, applyMiddleware(thunk));
+const store = createStore(
+  rootReducer,
+  compose(
+    applyMiddleware(thunk.withExtraArgument({ getFirebase, getFirestore })),
+    reduxFirestore(fbConfig), // a way to pass the fbase config here and then we can get access to firebase
+    reactReduxFirebase(fbConfig)
+  )
+);
 ReactDOM.render(
   <Provider store={store}>
     <App />
