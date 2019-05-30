@@ -13,12 +13,12 @@ class Dashboard extends React.Component {
 
   render() {
     console.log(this.props);
-    const { ProjectsNameThatPropsData } = this.props;
+    const { projects } = this.props;
 
     return (
       <div className="wallpaper">
         <div>
-          <ProjectList projects={ProjectsNameThatPropsData} />
+          <ProjectList projects={projects} />
         </div>
         <div>
           <Notifications />
@@ -31,7 +31,8 @@ class Dashboard extends React.Component {
 const mapStateToProps = state => {
   console.log(state);
   return {
-    ProjectsNameThatPropsData: state.project.projects // pass props to projects from state.project reducer as (propurty project ) initial data(dumy projects)
+    // projects: state.project.projects // pass props to projects from state.project reducer as (propurty project ) initial data(dumy projects)
+    projects: state.firestore.ordered.sheets // #19
   };
 };
 // export default connect(mapStateToProps)(Dashboard);
