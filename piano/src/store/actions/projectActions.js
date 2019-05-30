@@ -23,7 +23,7 @@ export const createProject = project => {
         dispatch({ type: 'CREATE_PROJECT', project: project }); //  project: project is the state - <form> add new...
       })
       .catch(err => {
-        dispatch({ type: 'ERROR_PROJECT', err });
+        dispatch({ type: 'CREATE_PROJECT_ERROR', err });
       });
   };
 };
